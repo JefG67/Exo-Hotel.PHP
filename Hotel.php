@@ -87,9 +87,16 @@ class Hotel{
         $this->chambres[] = $chambre;
     }
 
-    public function __toString()
-    {
-        return " "; // a completer
+//     public function __toString()
+//     {
+//         return "Hôtel " . $this->hotel . "****" . $this->adresse; 
+//     }
+
+    public function afficherInfos(){
+        echo $this->hotel . "****" . $this->adresse . $this->codePostal . $this->ville;
     }
+
+
+
 }
 
