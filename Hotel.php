@@ -140,10 +140,10 @@ class Hotel{
         }else{
             echo count($this->reservations). " RESERVATION";
             foreach ($this->reservations as $reservation){
-                $result = $result . $reservation->getClient()->getnom() . " " . $reservation->getClient()->getPrenom() . $reservation->getChambre()->getNomChambre() . $reservation->getDateArrivé()->format("d-m-Y") . " au ". $reservation->getDateDépart()->format("d-m-Y");
+                $result = $result . $reservation->getClient()->getnom() . " " . $reservation->getClient()->getPrenom() . " chambre " . $reservation->getChambre()->getNomChambre() . " du " .$reservation->getDateArrivé()->format("d-m-Y") . " au ". $reservation->getDateDépart()->format("d-m-Y")."<br>";
             }
         }
-    
+        return $result;
     }
 
     
