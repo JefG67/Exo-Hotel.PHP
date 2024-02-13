@@ -26,7 +26,7 @@ echo $hotel1->afficherInfos();
 
 // $client1->showResaClient();
 // $chambre1->showResaClient();
-echo $hotel1->afficherReservations();
+echo $hotel1->afficherReservations($reservation1);
 
 
 
