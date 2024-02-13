@@ -133,17 +133,18 @@ class Hotel{
 
     //Méthode pour afficher les réservations d'un hôtel
     public function afficherReservations(){
-        $result = "<br><h3>Réservations de l'Hôtel " . $this->nomHotel."</h3><br> ";
+        echo "<br><h3>Réservations de l'Hôtel " . $this->nomHotel."</h3><br> ";
+        $result = "";
         //si le tableau des reservation est vide 
         if(empty($this->reservations)){
-            $result = $result . "Aucune réservation<br>";
+            $result = "Aucune réservation<br>";
         }else{
-            echo count($this->reservations). " RESERVATION";
+            echo count($this->reservations). " RESERVATION<br><br>"; //doit etre en dessous de reservation hotel hilton
             foreach ($this->reservations as $reservation){
-                $result = $result . $reservation->getClient()->getnom() . " " . $reservation->getClient()->getPrenom() . " chambre " . $reservation->getChambre()->getNomChambre() . " du " .$reservation->getDateArrivé()->format("d-m-Y") . " au ". $reservation->getDateDépart()->format("d-m-Y")."<br>";
+                $result .= $reservation->getClient()->getnom() . " " . $reservation->getClient()->getPrenom() . " chambre " . $reservation->getChambre()->getNomChambre() . " du " .$reservation->getDateArrivé()->format("d-m-Y") . " au ". $reservation->getDateDépart()->format("d-m-Y")."<br>";
             }
         }
-        return $result;
+         return $result;
     }
 
     

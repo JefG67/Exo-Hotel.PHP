@@ -51,6 +51,24 @@ class Client{
             echo ($resa->getChambre()->getHotel()->getNomHotel());
         }
     }
+
+    public function __toString()
+    {
+        return $this->nom." " .$this->prenom;
+    }
+
+    //Méthode pour afficher les réservations d'un client
+    public function afficherReservationsClient(){
+        echo "<h3>Réservations de " .$this. "</h3>" 
+                .count($this->reservations). " Reservation<br><br>"; //le 2 reservation doit etre en dessous de reservation elon musk
+        $result = "";
+        foreach($this->reservations as $reservation){
+            $result .= $reservation . "<br>";
+        }
+        return $result;
+    }
+    
+    
 }
 
 
