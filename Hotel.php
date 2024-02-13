@@ -133,7 +133,7 @@ class Hotel{
 
     //Méthode pour afficher les réservations d'un hôtel
     public function afficherReservations(){
-        echo "<br>". $result = "<br><h3>Réservations de l'Hôtel " . $this->nomHotel."</h3><br> ";
+        $result = "<br><h3>Réservations de l'Hôtel " . $this->nomHotel."</h3><br> ";
         //si le tableau des reservation est vide 
         if(empty($this->reservations)){
             $result = $result . "Aucune réservation<br>";

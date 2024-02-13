@@ -5,6 +5,7 @@ spl_autoload_register(function ($class_name) {
 
 //hotels
 $hotel1 = new Hotel ("Hilton", "10 route de la Gare", "67000", "Strasbourg");
+$hotel2 = new Hotel ("Regent", "20 route de la Brouette", "95000", "Paris");
 
 
 
@@ -32,6 +33,7 @@ echo $hotel1->afficherInfos();
 // $client1->showResaClient();
 // $chambre1->showResaClient();
 echo $hotel1->afficherReservations();
+echo $hotel2->afficherReservations();
 
 
 
