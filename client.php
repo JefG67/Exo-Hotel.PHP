@@ -1,6 +1,6 @@
 <?php
 
-class Clients{
+class Client{
     private string $nom;
     private string $prenom;
     private array $reservations;
@@ -38,20 +38,18 @@ class Clients{
         return $this;
     }
 
-    public function getReservations()
-    {
-        return $this->reservations;
-    }
 
-     
-    public function setReservations($reservations)
-    {
-        $this->reservations = $reservations;
-
-        return $this;
-    }
-    public function addReservation(Reservations $reservation){
+    
+    public function addReservation(Reservation $reservation){
         $this->reservations[] = $reservation;
+    }
+
+
+    public function showResaClient()
+    {
+        foreach($this->reservations as $resa){
+            echo ($resa->getChambre()->getHotel()->getNomHotel());
+        }
     }
 }
 

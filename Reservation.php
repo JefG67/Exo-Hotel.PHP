@@ -1,47 +1,33 @@
 <?php
 
-class Reservations{
-    private int $nombreChambreRes;
-    private string $nomHotelRes;
+class Reservation{
+    // private int $nombreChambreRes;
     private DateTime $dateArrivé;
     private DateTime $dateDépart;
+    private Chambre $chambre;
+    private Client $client;
+    // private Hotel $hotel;
 
 
-public function __construct( int $nombreChambreRes, string $nomHotelRes, int $dateArrivé, int $dateDépart){
-    $this->nombreChambreRes = $nombreChambreRes;
-    $this->nomHotelRes = $nomHotelRes;
+
+public function __construct( string $dateArrivé, string $dateDépart, Chambre $chambre, Client $client){
+    
     $this->dateArrivé = new DateTime($dateArrivé);
     $this->dateDépart = new DateTime($dateDépart);
+    $this->chambre = $chambre;
+    $this->client = $client;
+    $this->client->addReservation($this);
+    $this->chambre->addReservation($this);
+    // Ajouter la réservation à l'hôtel
+    $hotel = $chambre->getHotel();
+    $hotel-> addReservation($this);
+    
+ 
 
 }
     
-    public function getNombreChambreRes()
-    {
-        return $this->nombreChambreRes;
-    }
-
-    
-    public function setNombreChambreRes($nombreChambreRes)
-    {
-        $this->nombreChambreRes = $nombreChambreRes;
-
-        return $this;
-    }
-
    
-    public function getNomHotelRes()
-    {
-        return $this->nomHotelRes;
-    }
-
-    
-    public function setNomHotelRes($nomHotelRes)
-    {
-        $this->nomHotelRes = $nomHotelRes;
-
-        return $this;
-    }
-
+   
     
     public function getDateArrivé()
     {
@@ -68,5 +54,37 @@ public function __construct( int $nombreChambreRes, string $nomHotelRes, int $da
 
         return $this;
     }
-}
 
+    
+    public function getChambre()
+    {
+        return $this->chambre;
+    }
+
+    
+    public function setChambre($chambre)
+    {
+        $this->chambre = $chambre;
+
+        return $this;
+    }
+
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+   
+    public function setClient($client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->chambre;
+    }
+
+}
