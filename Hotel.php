@@ -150,7 +150,7 @@ class Hotel{
 
     public function __toString()
     {
-        return  $this->nomHotel . " **** " . $this->adresse . " " . $this->codePostal . " " . $this->ville;
+        return  "<h2>" . $this->nomHotel . " **** " . $this->ville. "</h2><br>" . $this->adresse . " " . $this->codePostal;
     }
 
     public function afficherInfos(){
