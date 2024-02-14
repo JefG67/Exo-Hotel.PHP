@@ -75,7 +75,7 @@ class Client{
         foreach($this->reservations as $reservation){
             $totalPrix = $totalPrix + $reservation->getChambre()->getPrixChambre() * $reservation->nombreDeJour();
         }
-        return "Total : $totalPrix € <br/>";
+        return "Total : $totalPrix € <br/><br/>";
     }
 }
 
