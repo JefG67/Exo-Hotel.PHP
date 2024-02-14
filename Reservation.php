@@ -21,8 +21,9 @@ public function __construct( string $dateArrivé, string $dateDépart, Chambre $
     // Ajouter la réservation à l'hôtel
     $hotel = $chambre->getHotel();
     $hotel-> addReservation($this);
-    
- 
+    // changer le statut  pour le passer de true a false dans la construct statut chambre ( disponible a reserve)
+    $this->chambre->setStatutChambre(false); 
+
 
 }
     

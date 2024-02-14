@@ -7,15 +7,17 @@ class Hotel{
     private string $ville;
     private array $chambres;
     private array $reservations;
+    
 
 
-    public function __construct(string $nomHotel, string $adresse, string $codePostal, string $ville){
+    public function __construct(string $nomHotel, string $adresse, string $codePostal, string $ville,){
         $this->nomHotel = $nomHotel;
         $this->adresse = $adresse;
         $this->codePostal = $codePostal;
         $this-> ville = $ville;
         $this->chambres = [];
         $this->reservations =[];
+        
     }
 
         
@@ -68,16 +70,16 @@ class Hotel{
     public function setVille($ville)
     {
         $this->ville = $ville;
-
+        
         return $this;
     }
-
-  
+    
+    
     public function getChambres()
     {
         return $this->chambres;
     }
-
+    
     
     public function setChambres($chambres)
     {
@@ -94,20 +96,20 @@ class Hotel{
     public function setReservation($reservation)
     {
         $this->reservations = $reservation;
-    
+        
         return $this;
     }
-
+    
     //Méthode pour ajouter des chambres au tableau de chambres
     public function addChambre(Chambre $chambre){
         $this->chambres[] = $chambre;
     }
-
+    
     //Méthode pour ajouter des réservations au tableau de réservations
     public function addReservation(Reservation $reservation){
         $this->reservations[] = $reservation;
     }
- 
+       
     //Méthode pour compter le nombre de chambres réservées
     public function afficherNbChambresReservees()
     {
@@ -162,6 +164,7 @@ class Hotel{
 
 
     
-    
+     
+
 }
   

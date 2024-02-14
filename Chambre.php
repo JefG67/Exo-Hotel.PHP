@@ -7,9 +7,10 @@ class Chambre{
     private int $nombreLit;
     private Hotel $hotel;
     private array $reservations;
+    private bool $statutChambre;
 
 
-    public function __construct(string $nomChambre, float $prixChambre, bool $wifi, int $nombreLit, Hotel $hotel){
+    public function __construct(string $nomChambre, float $prixChambre, bool $wifi, int $nombreLit, Hotel $hotel ){
         $this->nomChambre = $nomChambre;
         $this->prixChambre = $prixChambre;
         $this->wifi = $wifi;
@@ -17,6 +18,7 @@ class Chambre{
         $this->hotel = $hotel;
         $this->reservations = [];
         $this->hotel->addChambre($this);
+        $this->statutChambre = true;
         
         
     }
@@ -68,55 +70,80 @@ class Chambre{
     {
         return $this->nombreLit;
     }
-
+    
     
     public function setNombreLit($nombreLit)
     {
         $this->nombreLit = $nombreLit;
-
+        
         return $this;
     }
-
+    
     
     public function getHotel()
     {
         return $this->hotel;
     }
-
-   
+    
+    
     public function setHotel($hotel)
     {
         $this->hotel = $hotel;
-
+        
         return $this;
     }
-
+    
     
     public function getReservations()
     {
         return $this->reservations;
     }
-
-     
+    
+    
     public function setReservations($reservations)
     {
         $this->reservations = $reservations;
+        
+        return $this;
+    }
+
+    public function getStatutChambre()
+    {
+        return $this->statutChambre;
+    }
+
+    
+    public function setStatutChambre($statutChambre)
+    {
+        $this->statutChambre = $statutChambre;
 
         return $this;
     }
+
     public function addReservation(Reservation $reservation){
         $this->reservations[] = $reservation;
     }
-
+    
     public function showResaClient()
     {
         foreach($this->reservations as $resa){
             var_dump($resa);
         }
     }
+    
+    //methode pour afficher le statut Chambre
+    public function afficherStatut(){
+        if ($this->statutChambre==true) {
+            return "disponible.";
+        } else {
+            return "Réservé";
+        }
+}
+       
+    
 
     public function __toString()
-    {    $wifi = $this->wifi ? "wifi : oui" : "wifi : non"; // ? "avec wifi" : "sans wifi" est l'opérateur ternaire.Voila sa representation : condition ? valeur_si_vrai : valeur_si_faux
+    {    $wifi = $this->wifi ? "wifi : oui" : "wifi : non"; // ? "avec wifi" : "sans wifi" est l'opérateur ternaire(Un opérateur ternaire est un opérateur qui prend trois opérandes et est souvent utilisé comme raccourci pour les instructions conditionnelles if-else). Voila sa representation : condition ? valeur_si_vrai : valeur_si_faux
     $result = "Hotel: " . $this->hotel->getNomHotel(). " **** " . $this->hotel->getVille() ."/ Chambre : " . $this->nomChambre ." (".$this->nombreLit." lits - ".$this->prixChambre." € -  $wifi) du " ;
         foreach ($this->reservations as $resa){
             $result = $result . $resa->getDateArrivé()->format("d-m-Y") . " au " . $resa->getDateDépart()->format("d-m-Y") . "<br>";; 
@@ -124,4 +151,5 @@ class Chambre{
         }
         return $result;
     }    
-}
+
+}   

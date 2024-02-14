@@ -40,4 +40,5 @@ echo $client1->afficherReservationsClient();
 echo $client1->afficherPrixTotal();
 echo $client2->afficherReservationsClient();
 echo $client2->afficherPrixTotal();
+echo $chambre1->afficherStatut();
 
