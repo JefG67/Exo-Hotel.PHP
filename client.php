@@ -60,15 +60,23 @@ class Client{
     //Méthode pour afficher les réservations d'un client
     public function afficherReservationsClient(){
         echo "<h3>Réservations de " .$this. "</h3>" 
-                .count($this->reservations). " Reservation<br><br>"; //le 2 reservation doit etre en dessous de reservation elon musk
+                .count($this->reservations). " Reservation<br><br>"; 
         $result = "";
         foreach($this->reservations as $reservation){
-            $result .= $reservation . "<br>";
+            $result = $result . $reservation . "<br>";
         }
         return $result;
     }
     
-    
+   
+    //Méthode pour afficher le prix Total des reservation
+    public function afficherPrixTotal(){
+        $totalPrix = 0;
+        foreach($this->reservations as $reservation){
+            $totalPrix = $totalPrix + $reservation->getChambre()->getPrixChambre() * $reservation->nombreDeJour();
+        }
+        return "Total : $totalPrix € <br/>";
+    }
 }
 
 

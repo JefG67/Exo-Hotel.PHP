@@ -6,7 +6,7 @@ class Reservation{
     private DateTime $dateDépart;
     private Chambre $chambre;
     private Client $client;
-    // private Hotel $hotel;
+    // private Hotel $hotel;  
 
 
 
@@ -86,5 +86,12 @@ public function __construct( string $dateArrivé, string $dateDépart, Chambre $
     {
         return $this->chambre;
     }
-
+    //Méthode pour calculer le nombre de jours qu'un client passe dans l'hôtel
+    public function nombreDeJour(){
+        $dateArrive = $this->dateArrivé;
+        $dateDepart = $this->dateDépart;
+        $diffJour = $dateArrive->diff($dateDepart);
+        $nombreDeJour = $diffJour->days;
+            return $nombreDeJour;
+    }
 }

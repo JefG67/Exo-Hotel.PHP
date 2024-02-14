@@ -139,9 +139,9 @@ class Hotel{
         if(empty($this->reservations)){
             $result = "Aucune réservation<br>";
         }else{
-            echo count($this->reservations). " RESERVATION<br><br>"; //doit etre en dessous de reservation hotel hilton
+            echo count($this->reservations). " Reservation<br><br>"; 
             foreach ($this->reservations as $reservation){
-                $result .= $reservation->getClient()->getnom() . " " . $reservation->getClient()->getPrenom() . " chambre " . $reservation->getChambre()->getNomChambre() . " du " .$reservation->getDateArrivé()->format("d-m-Y") . " au ". $reservation->getDateDépart()->format("d-m-Y")."<br>";
+                $result = $result . $reservation->getClient()->getnom() . " " . $reservation->getClient()->getPrenom() . " chambre " . $reservation->getChambre()->getNomChambre() . " du " .$reservation->getDateArrivé()->format("d-m-Y") . " au ". $reservation->getDateDépart()->format("d-m-Y")."<br>";
             }
         }
          return $result;

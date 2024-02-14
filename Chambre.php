@@ -116,12 +116,12 @@ class Chambre{
     }
 
     public function __toString()
-{    $wifi = $this->wifi;
-    return $this->nomChambre ." (".$this->nombreLit." lits - ".$this->prixChambre." € -  $wifi)";
-}
-
-
-    public function afficherInfos(){
-    
-}
+    {    $wifi = $this->wifi ? "wifi : oui" : "wifi : non"; // ? "avec wifi" : "sans wifi" est l'opérateur ternaire.Voila sa representation : condition ? valeur_si_vrai : valeur_si_faux
+    $result = "Hotel: " . $this->hotel->getNomHotel(). " **** " . $this->hotel->getVille() ."/ Chambre : " . $this->nomChambre ." (".$this->nombreLit." lits - ".$this->prixChambre." € -  $wifi) du " ;
+        foreach ($this->reservations as $resa){
+            $result = $result . $resa->getDateArrivé()->format("d-m-Y") . " au " . $resa->getDateDépart()->format("d-m-Y") . "<br>";; 
+            
+        }
+        return $result;
+    }    
 }
