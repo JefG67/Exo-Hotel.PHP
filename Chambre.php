@@ -172,4 +172,4 @@ class Chambre{
 
 
 
-// $wifi = $this->wifi ? "wifi : oui" : "wifi : non"; // ? "avec wifi" : "sans wifi" est l'opérateur ternaire(Un opérateur ternaire est un opérateur qui prend trois opérandes et est souvent utilisé comme raccourci pour les instructions conditionnelles if-else). Voila sa representation : condition ? valeur_si_vrai : valeur_si_faux
+// $wifi = $this->wifi ? "wifi : oui" : "wifi : non"; // ? "avec wifi" : "sans wifi" est l'opérateur ternaire(Un opérateur ternaire est un opérateur qui prend trois valeurs et est souvent utilisé comme raccourci pour les instructions conditionnelles if-else). Voila sa representation : condition ? valeur_si_vrai : valeur_si_faux
