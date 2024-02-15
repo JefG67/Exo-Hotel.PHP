@@ -140,7 +140,7 @@ class Chambre{
         }
 }
        
-    public function coWifi($wifi){
+    public function coWifi(){
         // if($wifi == true){       
         //     return "Wifi : oui";               
         // }else {
@@ -162,7 +162,8 @@ class Chambre{
     
 
     public function statHotel(){
-        return  "<h3>Statuts des chambres de " .$this->hotel->getNomHotel()." **** " . $this->hotel->getVille(). "</h3><br> " .$this->nomChambre . " ". $this->getPrixChambre()." € - ". $this->coWifi($this->wifi)." la Chambre est ".$this->afficherStatut($this->statutChambre);
+        // echo "<h3>Statuts des chambres de " .$this->hotel->getNomHotel()." **** " . $this->hotel->getVille(). "</h3><br> ";
+        return $this->nomChambre . " ". $this->getPrixChambre()." € - ". $this->coWifi($this->wifi)." la Chambre est ".$this->afficherStatut($this->statutChambre)."<br>";
     }
 }   
 

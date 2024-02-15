@@ -31,15 +31,10 @@ $reservation3 = new Reservation ("2014-6-7","2042-3-7", $chambre3, $client3);
 
 
 echo $hotel1->afficherInfos();
-
-// $client1->showResaClient();
-// $chambre1->showResaClient();
 echo $hotel1->afficherReservations();
 echo $hotel2->afficherReservations();
 echo $client1->afficherReservationsClient();
 echo $client1->afficherPrixTotal();
-// echo $client2->afficherReservationsClient();
-// echo $client2->afficherPrixTotal();
-// echo $chambre1->afficherStatut();
-echo $chambre1->statHotel();
+echo $hotel1->etatChambres();
+// echo $chambre2->statHotel();
 

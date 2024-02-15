@@ -149,7 +149,18 @@ class Hotel{
          return $result;
     }
 
-    
+    public function etatChambres() {
+        $result = "<h4>Statuts des chambres de " . $this->nomHotel . " **** " . $this->ville ."</h4><br>";
+        foreach($this->chambres as $chambre) {
+            $statut = ($chambre->afficherStatut()); 
+            $wifi = ($chambre->coWifi());
+            $result .=  $chambre->getNomChambre()." Prix " .$chambre->getPrixChambre()." ".$wifi." " .$statut."<br>";
+                            
+                           
+                            
+        }
+        return $result."</tbody></table>";
+    }
 
     public function __toString()
     {
