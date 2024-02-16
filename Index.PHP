@@ -36,5 +36,5 @@ echo $hotel2->afficherReservations();
 echo $client1->afficherReservationsClient();
 echo $client1->afficherPrixTotal();
 echo $hotel1->etatChambres();
-// echo $chambre2->statHotel();
+
 

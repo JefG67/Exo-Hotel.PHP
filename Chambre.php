@@ -127,7 +127,7 @@ class Chambre{
     public function showResaClient()
     {
         foreach($this->reservations as $resa){
-            var_dump($resa);
+            return($resa);
         }
     }
     
