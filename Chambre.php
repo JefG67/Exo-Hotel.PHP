@@ -146,7 +146,7 @@ class Chambre{
         // }else {
         //     return "Wifi : non";
         // }
-        $wifi = $this->wifi ? "wifi : oui" : "wifi : non";
+        $wifi = $this->wifi ? " oui" : " non";
         return $wifi;
     }
 
