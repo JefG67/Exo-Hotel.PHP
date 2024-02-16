@@ -149,19 +149,45 @@ class Hotel{
          return $result;
     }
 
-    public function etatChambres() {
-        $result = "<h4>Statuts des chambres de " . $this->nomHotel . " **** " . $this->ville ."</h4><br>";
-        foreach($this->chambres as $chambre) {
-            $statut = ($chambre->afficherStatut()); 
-            $wifi = ($chambre->coWifi());
-            $result .=  $chambre->getNomChambre()." Prix " .$chambre->getPrixChambre()." ".$wifi." " .$statut."<br>";
+    // public function etatChambres() {
+    //     $result = "<h4>Statuts des chambres de " . $this->nomHotel . " **** " . $this->ville ."</h4><br>";
+    //     foreach($this->chambres as $chambre) {
+    //         $statut = ($chambre->afficherStatut()); 
+    //         $wifi = ($chambre->coWifi());
+    //         $result .=  $chambre->getNomChambre()." Prix " .$chambre->getPrixChambre()." ".$wifi." " .$statut."<br>";
                             
                            
                             
+    //     }
+    //     return $result."</tbody></table>";
+    // }
+        //ajout d'un tableau HTML pour la function etatChambres()
+    public function etatChambres() {
+        $result = "<h4>Statuts des chambres de " . $this->nomHotel . " **** " . $this->ville ."</h4>";
+        // Début du tableau marqué par la balise <table>
+        $result = $result . "<table>";
+        // Pour crée la partie avec les categorie du tableau chambre / prix / wifi et etat on utlise la balise <thead>
+        // La balise <tr> le début d'une ligne dans le tableau.Puis <th> pour définir les titres des colonnes du tableau.
+        $result = $result . "<thead>
+                                <tr>  
+                                    <th>Chambre</th>
+                                    <th>Prix</th>
+                                    <th>Wifi</th>
+                                    <th>Etat</th>
+                                </tr>
+                            </thead>
+                        <tbody>";
+                        //<tbody> : Balise pour définir le corps du tableau avec notre function
+        foreach($this->chambres as $chambre) {
+            $statut = $chambre->afficherStatut(); 
+            $wifi = ($chambre->coWifi());
+            $result .= "<tr><td>" . $chambre->getNomChambre() . "</td><td>" . $chambre->getPrixChambre() . " €</td><td>" . $wifi . "</td><td>" . $statut . "</td></tr>";
         }
-        return $result."</tbody></table>";
+        // Fin du tableau av
+        $result = $result ."</tbody></table>";
+        return $result;
     }
-
+    
     public function __toString()
     {
         return  "<h2>" . $this->nomHotel . " **** " . $this->ville. "</h2><br>" . $this->adresse . " " . $this->codePostal;
